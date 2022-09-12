@@ -91,7 +91,7 @@ Also the feature importance shows that the most important features to determine 
 
 The decision tree model can be found in the link
 
-<img src="https://github.com/drmateusrocha/Capstone-Project/blob/8b77156b7e4899b83990cce20da017619bb41c70/images/fig1-L_by_ceramic.jpeg" width="48">
+<img src="https://github.com/drmateusrocha/Capstone-Project/blob/8b77156b7e4899b83990cce20da017619bb41c70/images/fig1-L_by_ceramic.jpeg" width="1000">
 #### Outline of project
 
 - Notebook > https://github.com/drmateusrocha/Practical-Aplication-3/blob/main/rocha_prompt_III.ipynb
