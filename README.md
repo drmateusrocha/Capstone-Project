@@ -106,18 +106,33 @@ The feature importance shows:
 <<<<<<< HEAD
 ## Results
 
-### Exploratory Analysis
+### Exploratory Analysis (Notebook 1)
 
 The complete notebook for exploratory analysis can be found here : - Notebook 1 > https://github.com/drmateusrocha/
 
-![alt text](https://github.com/drmateusrocha/Capstone-Project/blob/8b77156b7e4899b83990cce20da017619bb41c70/images/fig1-L_by_ceramic.jpeg)
-
-The Figure 1 above  shows the CIELab values for the substrates and ceramics blocks used in this study. For the L* value, it can be noticed that the Black background had the lowest L* value as the White background had the higher L* value. The A1 shade had higher L* values than the A3 shade for the ceramic blocks, regardless of the translucency (LT or HT). For the same shade color (A1 or A3), the LT ceramics had higher L* values than the HT ceramics.
-For the a* values, it can be noticed that the ceramic block IPS Empress® HT A1 has a negative a* value, which makes it with a greenish aspect. The White background has also a negative a* value, but it is very close to 0. The black background has a positive a* value, which makes it with a reddish aspect. The ceramic IPS Empress® LT A3 has the highest a* value followed by IPS Empress® HT A3 and IPS Empress® LT A1, respectively.
+The Figure 1 above  shows the CIELab values for the substrates and ceramics blocks used in this study. For the L* value, it can be noticed that the Black background had the lowest L* value as the White background had the higher L* value. The A1 shade had higher L* values than the A3 shade for the ceramic blocks, regardless of the translucency (LT or HT). For the same shade color (A1 or A3), the LT ceramics had higher L* values than the HT ceramics. For the a* values, it can be noticed that the ceramic block IPS Empress® HT A1 has a negative a* value, which makes it with a greenish aspect. The White background has also a negative a* value, but it is very close to 0. The black background has a positive a* value, which makes it with a reddish aspect. The ceramic IPS Empress® LT A3 has the highest a* value followed by IPS Empress® HT A3 and IPS Empress® LT A1, respectively.
 For the b* values, all substrates have a positive b* value. The White background has a higher b* value than the black background. The ceramic A3 have higher b* value than the ceramic A1. The ceramics LT have a higher b* value than the ceramics HT.
+
+
+Figure 1 > Substrates
+
+
+
+
+#### Analysis of Variance
+
 Figures 3, 4, 5 and 6 show the L*, a*, b* and ΔE00 values of the different ceramic restorations with different thickness cemented on the different substrates. For the L* values (Figure 3), significant differences were found among all variables (substrate vs ceramic type vs thickness, df = 27, F = 54.87, p < 0.001). According to the pairwise comparison, for the same ceramic type and thickness, the differences were found for all substrate shades (df = 3, F = 5.1x105, p < 0.001), where the L* final of the restoration follows White > A1 > A3 > Black for the different background.
 Within the same background, the influence of the different ceramic shade and ceramic thickness is statistically significant (df = 9, F = 208.19, p < 0.001). However, when the pairwise comparison is performed the color of the background and the color of the ceramic dictates if the L* of the final restorations is going to be higher or lower than the background. For the white background using the different ceramics, as thinner the ceramic thickness higher is the L* of the final restoration. And the inverse is true for the Black background, as thinner the ceramic thickness lower is the L* of the final restorations. For the A1 and A3 backgrounds, the influence of the thickness on the L* of the final restoration depends on the difference of the L* values of the ceramic restoration and the background. For A1 and A3 backgrounds, restored with IPS Empress® LT A1 and IPS Empress® LT A3, respectively, no differences were found in the L* of the final restoration among all different thicknesses.
 The same pattern was founded for the a* and b* values. However, it is important to notice that the L*, a* and b* values will influence the final color independently, but an alteration of the axis (L*, a* or b*) can significantly influence the ΔE00fs and subsequently the final color of the restoration.
+
+
+Fig L by ceramic
+![alt text](https://github.com/drmateusrocha/Capstone-Project/blob/8b77156b7e4899b83990cce20da017619bb41c70/images/fig1-L_by_ceramic.jpeg)
+
+Fig
+
+
+#### Correlations
 
 For the Lf variable, the Pearson’s correlation analysis found a significant linear interaction with the bf (r = 0.779, p < 0.05), Ls (r = 0.936, p < 0.05), Δafs (r = 0.701, p < 0.05), Δbfs (r = 0.716, p < 0.05) and ΔLsc (r = 0.918, p < 0.05). These variables were submitted to multivariate linear regression analysis and the results shows an Adjusted-R2 of 0.980 (Figure 7). All variables were statistically significant (p < 0.001) for the model fitting. The regression function generate was f(Lf) = - 0.179 bf + 0.812 Ls – 9.406 Δafs + 1.357 Δbfs + 0.245 Δbfc – 0.289 ΔLsc + 15.42.
 
@@ -127,27 +142,43 @@ For the bf variable, the Pearson’s correlation analysis found a significant li
 
 No linear relationship was found for the thickness variable; thus, several different non-linear models were applied. It was found that the thickness is influence by the sigmoid function of the variable ΔE00sc (Adjusted-R2 = 0.915, p = 0.014) (Figure 10). The function to predict the thickness of the ceramic follows: T(x) = 1 / 1 + 1.16 (ΔE00sc)-0.047.
 
-### Multivariate Regression
+The excel spreadsheet with algorithm GUI can be download in the supplementary material. Figure 11 shows a step-by-step example on how to use the spreadsheet. In this example, an acceptability threshold of 1.77 was used for the calculations (Figure 11-A). The L*, a* and b* of the substrate, Empress® LT A3 ceramic, was inserted (Figure 11-B).  The L*, a* and b* of the target color, Empress® LT A1 ceramic, was inserted (Figure 11-C). These L*, a* and b* values can be clinically measured using the spectrophotometer or the dentist can use the algorithm “Ceramic Data Base” tab to select the L*, a* and b* values by means of shade selection by visual inspection.  The outcome of this algorithm application example shows that to achieve a target shade A1 using Empress® ceramic veneer on a substrate A3, the minimum ceramic thickness is 0.8.
+
+
+### Multivariate Regression (Notebook 2)
 
 The complete notebook for multivariate regression can be found here : - Notebook 2 > https://github.com/drmateusrocha/
 
 The DecisionTreeRegressor() was the best model with the lowest mean absolute error (MAE, 0.226) ad the highest R2 score (0.99)
 
-Thus, it was decided to fine-tune the hyperparameters of the Decision Tree Regressor and the best hyperameters were {'criterion': 'friedman_mse', 'max_depth': 28, 'min_samples_leaf': 1}
+Thus, it was decided to fine-tune the hyperparameters of the Decision Tree Regressor and the best hyperameters were {'criterion': 'friedman_mse', 'max_depth': 16, 'min_samples_leaf': 1}
 
 The feature importance shows:
+    
+    Thickness = 0.125
+    Lsub = 0.591
+    asub = 0.007
+    bsub = 0.248
+    Lcer = 0.011
+    acer = 0.014
+    bcer = 0.004   
 
-  Thickness  Lsub  asub  bsub  Lcer  acer  bcer
-0      0.124 0.597 0.237 0.013 0.012 0.011 0.006
+Thus, according to this model the most important features to predict the L, a and b final are the Lsub, the bsub and the thickness.
 
-The excel spreadsheet with algorithm GUI can be download in the supplementary material. Figure 11 shows a step-by-step example on how to use the spreadsheet. In this example, an acceptability threshold of 1.77 was used for the calculations (Figure 11-A). The L*, a* and b* of the substrate, Empress® LT A3 ceramic, was inserted (Figure 11-B).  The L*, a* and b* of the target color, Empress® LT A1 ceramic, was inserted (Figure 11-C). These L*, a* and b* values can be clinically measured using the spectrophotometer or the dentist can use the algorithm “Ceramic Data Base” tab to select the L*, a* and b* values by means of shade selection by visual inspection.  The outcome of this algorithm application example shows that to achieve a target shade A1 using Empress® ceramic veneer on a substrate A3, the minimum ceramic thickness is 0.8.
+The model was deployed using the API Gradio for simple GUI.
+>API
+
+### Simple Neural Network (Notebook 3)
+
+### Deep Neural Network (Notebook 4)
 
 
-The decision tree model can be found in the link
-HEAD
 
-<img src="https://github.com/drmateusrocha/Capstone-Project/blob/8b77156b7e4899b83990cce20da017619bb41c70/images/fig1-L_by_ceramic.jpeg" width="1000">
+## Conclusion
 
 #### Outline of project
 
-- Notebook 1 > https://github.com/drmateusrocha/
+- Notebook 1 - Exploratory Analysis > https://github.com/drmateusrocha/
+- Notebook 2 - Multivariate Regressions (Scikit Learn) > https://github.com/drmateusrocha/
+- Notebook 3 - Simple Neural Network (TensorFlow with GridSearchCV) > https://github.com/drmateusrocha/
+- Notebook 4 - Deep Neural Network (Tensorflow with Bayesian Optimization)> https://github.com/drmateusrocha/
