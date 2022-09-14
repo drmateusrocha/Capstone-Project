@@ -166,15 +166,34 @@ The feature importance shows:
 Thus, according to this model the most important features to predict the L, a and b final are the Lsub, the bsub and the thickness.
 
 The model was deployed using the API Gradio for simple GUI.
->API
+
 
 ### Simple Neural Network (Notebook 3)
+
+The complete notebook for the Simple Neural Network can be found here: - Notebook 3 > 
+
+This model was developed using TensorFlow and GridSearchCV (Scikit Learn) for optimization.
+
+First the a simple neural network (NN) with 7 inputs, 5 neurons, 1 hidden layer and 3 outputs was attempted. The MAE error for this NN was 1.864.
+
+Then, a GridSearchCV optimization was done to determine the number of hidden layers (1 or 2) and the number of neurons per hidden layer (20, 10, 5, 3) using batch sizes of 20, 50, 100 and epochs of 20, 50, 100.
+
+
+The MAE error for the optimized NN was 1.547.
+
+
 
 ### Deep Neural Network (Notebook 4)
 
 
 
 ## Conclusion
+
+All models were able to predict the L, a and b of the ceramics according to the different input parameters. The Multivariate Regression using the Decision Tree Regressor obtained the lowest MAE, however, the model seems to be very accurate to predict the shade within the range of the train data. The model is not overfitted but extrapolation of data can lead to wrong predictions
+
+The simple neural network was able to predict the shade values, but since the linear output function can lead to infinity, a function limiting the output was needed since L values can only be from 0 to 100 and a and b values only from -100 to 100. Even with a simple NN, the computational power needed for grid search is massive. It took a few hours to complete. The best architecture has
+
+The deep neural network was also able to predict the shade values, and the same limitation on the output funtion was implemented. For the Deep NN, Bayesian Optimization was done instead of GridSearchCV for faster optimization. 400 trials were attempted and the ideal architeture has: 
 
 #### Outline of project
 
