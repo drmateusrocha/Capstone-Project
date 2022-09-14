@@ -102,6 +102,7 @@ The feature importance shows:
   Thickness  Lsub  asub  bsub  Lcer  acer  bcer
 0      0.124 0.597 0.237 0.013 0.012 0.011 0.006
 
+<<<<<<< HEAD
 ## Results
 
 ### Exploratory Analysis
@@ -142,13 +143,9 @@ The excel spreadsheet with algorithm GUI can be download in the supplementary ma
 
 
 The decision tree model can be found in the link
+HEAD
 
-<<<<<<< HEAD
-
-
-=======
 <img src="https://github.com/drmateusrocha/Capstone-Project/blob/8b77156b7e4899b83990cce20da017619bb41c70/images/fig1-L_by_ceramic.jpeg" width="1000">
->>>>>>> bdcf870d2c73f985caac52d1620226e85502a703
 
 #### Outline of project
 
