@@ -1,21 +1,21 @@
 # Capstone-Project
 Rocha's Capstone Project - Berkeley
 
-### AI/ML models to predict the final color of leucite-reinforced ceramic veneer restorations
+## AI/ML models to predict the final color of leucite-reinforced ceramic veneer restorations
 
 **Mateus Rocha**
 Center for Dental Biomaterials, College of Dentistry of University of Florida.
 mrocha@dental.ufl.edu
 www.biomaterials.dental.ufl.edu
 
-#### Executive summary
+## Executive summary
 
 This is Capstone Project to complete the requirements for the Certificate in AI/ML at UC Berkeley. 
 
 The study aims to develop an algorithm that can eliminate the necessity of visual inspection for shade selection and shade matching of any esthetic and restorative procedure using glass-based ceramic restorations. Recently, the Ivoclar Vivadent e.max shade navigation app was a considerable advance in the field to assist dentists in selecting the appropriate ceramic shade, translucence, and thickness. Still, there are several limitations as the app relies on the dentist's color perceptibility and acceptability. This study shows the algorithm developed and clinical spectrophotometric analysis aid using artificial intelligence to assist the dentist in selecting shade, type, thickness, and translucency of the ceramic restorations. 
 
 
-#### Rationale
+## Rationale
 
 Dental ceramics are in constant development and they are an essential material for restorative dental treatments. For conventional feldspathic ceramics, the dental technician constructs a ceramic restoration by condensation and sintering of layers of ceramic powder with different shades and opacities to mimic the natural tooth structure.2,3 However, this approach is becoming obsolete since computer-aid design and computer-aid manufacturing (CAD/CAM) can produce monolithic ceramic restorations with similar optical properties but higher mechanical strength.
 IPS Empress® CAD (Ivoclar ­Vivadent, Schaan, Liechtenstein) is a leucite-reinforced ceramic that presents a higher leucite volume as its crystalline phase, resulting in improved mechanical properties. The material is processed utilizing the hot-pressing technique or the CAD/CAM technique. The mechanical strength combined with excellent optical properties makes leucite-reinforced ceramics suitable for veneers and anterior crowns.
@@ -23,14 +23,14 @@ The chairside CAD/CAM dentistry is an extraordinary achievement that brings the 
 Shade guide is the traditional and most common method used for shade evaluation in dentistry but still presents many limitations. Instrumental color measurement has increased in popularity over the years. Different types of spectrophotometers, colorimeters, and imaging systems have been used in dentistry for shade evaluation.
 Instrumental measurement provides objective and quantitative data, which reduces the subjectivity of the visual method. However, there is no method to combine the CIELab coordinates (L*, a* and b*) obtained from the tooth substrate and ceramic to predict the best ceramic type, shade, and thickness. The understanding of these interactions would extend the use of spectrophotometers in dentistry and it can lead to development of an algorithm for spectrophotometric software-assisted shade selection.
 
-#### Research Question
+## Research Question
 Which regression model is the most accurate in the test data set, using their default parameters?
 
-#### Research Question
+### Specific aims and hypotheses
 The specific aims of the study are: 1 - Evaluate the L*, a* and b* of monolithic ceramics with different thicknesses, shades, and translucencies, cemented on white, black, A1, and A3 substrates with translucent resin cement. 2 - Create an algorithm based on the regression analysis of the color coordinate parameters (L*, a* and b*) to predict the final color of the ceramic restoration and the color change (ΔE00) from the initial substrate color. The hypotheses tested in this study are: H1 - There are significant differences in the L*, a* and b* color coordinates of monolithic ceramics with different thicknesses, shades, and translucencies cemented on white, black, A1, and A3 substrates with translucent resin cement. H2 - The algorithm created using the color coordinate parameters (L*, a* and b*) predicts the final color of the ceramic restoration and the color change (ΔE00) from the initial substrate color.
 
 
-#### Data Sources
+## Data Sources
 The data source can be found in this GitHub depository. The data collection was obtained by the author research group according to the following protocol:
 
 Leucite-reinforced glass-ceramics blocks (IPS Empress® CAD, C14, Ivoclar Vivadent, Schaan Liechtenstein) (Figure 1) in 4 different shades (HT - A1, A3; LT - A1, A3) were used in this study. The blocks were bonded to dressing sticks (Buehler®, Lake Bluff, IL) to allow precise cuts without chipping of the specimens during the section. The assembly was mounted in a precision diamond saw machine (Isomet, Buehler®, Lake Bluff, IL with the Buehler's® Isomet diamond blade 15 LC, dimensions: four inches (102 mm), thickness: 0.012 in (0.3 mm) Buehler®, Lake Bluff, IL) and the blocks were sectioned under water cooling at 400 rpm. Specimens (n = 5) perpendicular to the long axis of the block were obtained with thicknesses of 0.3, 0.5, 0.7 and 1.2 mm. The accuracy of the final thickness was determined with a digital caliper (Mitutoyo Corp®, Kawasaki, Japan) with an accuracy of ± 0.05 mm. The glaze was not applied to avoid high reflection luster that could affect shade measurement. A pilot study showed that samples prepared following this protocol present similar superficial rugosity to the samples milled in the CEREC® MC XL milling machine (according to the ISO 25178 - Geometric Product Specifications – Surface texture, Sa = 18.56 ± 1.7 µm for the Isomet 15LC Diamond Saw and Sa = 17.57 ± 1.8 µm for the CEREC® MCXL milling machine, p = 0.832).
@@ -58,42 +58,98 @@ The data set containing all variable were organized into:
     T = thickness of the ceramic restoration; 
     
 
-#### Methodology
-I am using the Jupyter Notebooks with scikit-learn libraries. The method was to first check the data for missing values. We use the one-hot encoder to treat the data. Then we used only the following bank information:
-	
-	# bank client data:
-	 - 1 - age (numeric)
-	 - 2 - job : type of job (categorical: 'admin.','blue-collar','entrepreneur','housemaid','management','retired','self-employed','services','student','technician','unemployed','unknown')
-	 - 3 - marital : marital status (categorical: 'divorced','married','single','unknown'; note: 'divorced' means divorced or widowed)
-	 - 4 - education (categorical: 'basic.4y','basic.6y','basic.9y','high.school','illiterate','professional.course','university.degree','unknown')
-	 - 5 - default: has credit in default? (categorical: 'no','yes','unknown')
-	 - 6 - housing: has housing loan? (categorical: 'no','yes','unknown')
-	 - 7 - loan: has personal loan? (categorical: 'no','yes','unknown')
-     
-     
-     
-After this I tested the default method of common classifiers; I selected the two best; and I optimize their parameters
+## Methodology
+I am using the Jupyter Notebooks with scikit-learn libraries. 
 
+First I attempted different Regression Models using their default parameters
 
-#### Results
-The results show that by default the logistic regression and the SVM model has the highest accuracy in the test data (0.8865); Both of them have the lowest accuracy in the training data, but still a high accuracy (0.8876). However, the train time for the logistic regression is only 0.3145 while the SVM is 13.37. Thus, by default, the logistic regression is the best model.
+The models tested were:
+    BaggingRegressor()
+    CCA()
+    DecisionTreeRegressor()
+    DummyRegressor()
+    ElasticNet()
+    ExtraTreeRegressor()
+    ExtraTreesRegressor()
+    GaussianProcessRegressor()
+    KNeighborsRegressor()
+    KernelRidge()
+    Lars()
+    Lasso()
+    LassoLars()
+    LinearRegression()
+    MLPRegressor()
+    MultiTaskElasticNet()
+    MultiTaskElasticNetCV()
+    MultiTaskLasso()
+    MultiTaskLassoCV()
+    OrthogonalMatchingPursuit()
+    PLSCanonical()
+    PLSRegression()
+    RANSACRegressor()
+    RadiusNeighborsRegressor()
+    RandomForestRegressor()
+    Ridge()
+    RidgeCV(alphas=array([ 0.1,  1. , 10. ]))
+    TransformedTargetRegressor()
 
-According to the logistic regression the highest coefficient to determine the model are: if the job is student and if the default_unknown.
+The DecisionTreeRegressor() was the best model with the lowest mean absolute error (MAE, 0.226) ad the highest R2 score (0.99)
 
-Nevertheless, when the models are optimize, the results are completely different.
-The Decision Tree when optimized (max_depth=3, min_samples_leaf=20, random_state=42) shows a highest train and test accuracy (0.8880 and 0.8872) , respectively.
+Thus, it was decided to fine-tune the hyperparameters of the Decision Tree Regressor and the best hyperameters were {'criterion': 'friedman_mse', 'max_depth': 28, 'min_samples_leaf': 1}
 
-Also the feature importance shows that the most important features to determine if the client will subscribe are
-	> age = 0.60
-	> job_student = 0.20
-	> default_no = 0.19
-	> education_basic.9y = 0.01
+The feature importance shows:
 
-The decision tree model can be found in the link
+  Thickness  Lsub  asub  bsub  Lcer  acer  bcer
+0      0.124 0.597 0.237 0.013 0.012 0.011 0.006
 
+## Results
+
+### Exploratory Analysis
+
+The complete notebook for exploratory analysis can be found here : - Notebook 1 > https://github.com/drmateusrocha/
 
 ![alt text](https://github.com/drmateusrocha/Capstone-Project/blob/8b77156b7e4899b83990cce20da017619bb41c70/images/fig1-L_by_ceramic.jpeg)
 
+The Figure 1 above  shows the CIELab values for the substrates and ceramics blocks used in this study. For the L* value, it can be noticed that the Black background had the lowest L* value as the White background had the higher L* value. The A1 shade had higher L* values than the A3 shade for the ceramic blocks, regardless of the translucency (LT or HT). For the same shade color (A1 or A3), the LT ceramics had higher L* values than the HT ceramics.
+For the a* values, it can be noticed that the ceramic block IPS Empress® HT A1 has a negative a* value, which makes it with a greenish aspect. The White background has also a negative a* value, but it is very close to 0. The black background has a positive a* value, which makes it with a reddish aspect. The ceramic IPS Empress® LT A3 has the highest a* value followed by IPS Empress® HT A3 and IPS Empress® LT A1, respectively.
+For the b* values, all substrates have a positive b* value. The White background has a higher b* value than the black background. The ceramic A3 have higher b* value than the ceramic A1. The ceramics LT have a higher b* value than the ceramics HT.
+Figures 3, 4, 5 and 6 show the L*, a*, b* and ΔE00 values of the different ceramic restorations with different thickness cemented on the different substrates. For the L* values (Figure 3), significant differences were found among all variables (substrate vs ceramic type vs thickness, df = 27, F = 54.87, p < 0.001). According to the pairwise comparison, for the same ceramic type and thickness, the differences were found for all substrate shades (df = 3, F = 5.1x105, p < 0.001), where the L* final of the restoration follows White > A1 > A3 > Black for the different background.
+Within the same background, the influence of the different ceramic shade and ceramic thickness is statistically significant (df = 9, F = 208.19, p < 0.001). However, when the pairwise comparison is performed the color of the background and the color of the ceramic dictates if the L* of the final restorations is going to be higher or lower than the background. For the white background using the different ceramics, as thinner the ceramic thickness higher is the L* of the final restoration. And the inverse is true for the Black background, as thinner the ceramic thickness lower is the L* of the final restorations. For the A1 and A3 backgrounds, the influence of the thickness on the L* of the final restoration depends on the difference of the L* values of the ceramic restoration and the background. For A1 and A3 backgrounds, restored with IPS Empress® LT A1 and IPS Empress® LT A3, respectively, no differences were found in the L* of the final restoration among all different thicknesses.
+The same pattern was founded for the a* and b* values. However, it is important to notice that the L*, a* and b* values will influence the final color independently, but an alteration of the axis (L*, a* or b*) can significantly influence the ΔE00fs and subsequently the final color of the restoration.
+
+For the Lf variable, the Pearson’s correlation analysis found a significant linear interaction with the bf (r = 0.779, p < 0.05), Ls (r = 0.936, p < 0.05), Δafs (r = 0.701, p < 0.05), Δbfs (r = 0.716, p < 0.05) and ΔLsc (r = 0.918, p < 0.05). These variables were submitted to multivariate linear regression analysis and the results shows an Adjusted-R2 of 0.980 (Figure 7). All variables were statistically significant (p < 0.001) for the model fitting. The regression function generate was f(Lf) = - 0.179 bf + 0.812 Ls – 9.406 Δafs + 1.357 Δbfs + 0.245 Δbfc – 0.289 ΔLsc + 15.42.
+
+For the af variable, the Pearson’s correlation analysis found a significant linear interaction with the bf (r = 0.897, p < 0.05), Ls (r = 0.732, p< 0.05), ΔLfs (r = - 0.854, p < 0.05), Δbfc (r = 0.825, p < 0.05), ΔLsc (r = 0.744, p < 0.05) and ΔE00sc (r = - 0.752, p < 0.05). These variables were submitted to multivariate linear regression analysis. All variables were statistically significant (p < 0.001) for the model fitting, with exception of ΔE00sc (p = 0.086) that was exclude from the model. The results of the regression analysis show an Adjusted-R2 of 0.952 (Figure 8).  The regression function generate was f(af) = 0.136 bf - 0.029 Ls – 0.077 ΔLfs + 0.037 Δbfc – 0.021 ΔLsc + 1.83. 
+
+For the bf variable, the Pearson’s correlation analysis found a significant linear interaction with the Lf (r = 0.779, p < 0.05), af (r = 0.897, p < 0.05), Ls (r = 0.891, p < 0.05), ΔLfs (r = - 0.896, p < 0.05), Δafs (r = 0.839, p < 0.05), ΔLfc (r = 0.804, p < 0.05), and ΔLsc (r = 0.899, p < 0.05). These variables were submitted to multivariate linear regression analysis. All variables were statistically significant (p < 0.001) for the model fitting, with exception of ΔLfc (p = 0.551) and ΔLsc (p = 0.562) that were exclude from the model. The results of the regression analysis show an Adjusted-R2 of 0.962 (Figure 9).  The regression function generate was f(bf) = 366.80 Lf + 6.743 af – 366.549 Ls – 366.424 ΔLfs – 0.978, Δafs - 13.717. 
+
+No linear relationship was found for the thickness variable; thus, several different non-linear models were applied. It was found that the thickness is influence by the sigmoid function of the variable ΔE00sc (Adjusted-R2 = 0.915, p = 0.014) (Figure 10). The function to predict the thickness of the ceramic follows: T(x) = 1 / 1 + 1.16 (ΔE00sc)-0.047.
+
+### Multivariate Regression
+
+The complete notebook for multivariate regression can be found here : - Notebook 2 > https://github.com/drmateusrocha/
+
+The DecisionTreeRegressor() was the best model with the lowest mean absolute error (MAE, 0.226) ad the highest R2 score (0.99)
+
+Thus, it was decided to fine-tune the hyperparameters of the Decision Tree Regressor and the best hyperameters were {'criterion': 'friedman_mse', 'max_depth': 28, 'min_samples_leaf': 1}
+
+The feature importance shows:
+
+  Thickness  Lsub  asub  bsub  Lcer  acer  bcer
+0      0.124 0.597 0.237 0.013 0.012 0.011 0.006
+
+The excel spreadsheet with algorithm GUI can be download in the supplementary material. Figure 11 shows a step-by-step example on how to use the spreadsheet. In this example, an acceptability threshold of 1.77 was used for the calculations (Figure 11-A). The L*, a* and b* of the substrate, Empress® LT A3 ceramic, was inserted (Figure 11-B).  The L*, a* and b* of the target color, Empress® LT A1 ceramic, was inserted (Figure 11-C). These L*, a* and b* values can be clinically measured using the spectrophotometer or the dentist can use the algorithm “Ceramic Data Base” tab to select the L*, a* and b* values by means of shade selection by visual inspection.  The outcome of this algorithm application example shows that to achieve a target shade A1 using Empress® ceramic veneer on a substrate A3, the minimum ceramic thickness is 0.8.
+
+
+The decision tree model can be found in the link
+
+<<<<<<< HEAD
+
+
+=======
+<img src="https://github.com/drmateusrocha/Capstone-Project/blob/8b77156b7e4899b83990cce20da017619bb41c70/images/fig1-L_by_ceramic.jpeg" width="1000">
+>>>>>>> bdcf870d2c73f985caac52d1620226e85502a703
+
 #### Outline of project
 
-- Notebook > https://github.com/drmateusrocha/Practical-Aplication-3/blob/main/rocha_prompt_III.ipynb
+- Notebook 1 > https://github.com/drmateusrocha/
