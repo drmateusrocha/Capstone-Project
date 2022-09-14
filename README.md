@@ -108,7 +108,9 @@ The feature importance shows:
 
 ### Exploratory Analysis (Notebook 1)
 
-The complete notebook for exploratory analysis can be found here : - Notebook 1 > https://github.com/drmateusrocha/
+The complete notebook for exploratory analysis can be found here : 
+
+- Notebook 1 > https://github.com/drmateusrocha/Capstone-Project/blob/dfc4545826616367db78551fd92b00cc0de4b790/notebooks/Notebook%201%20-%20Exploratory%20Analysis.ipynb
 
 The Figure 1 above  shows the CIELab values for the substrates and ceramics blocks used in this study. For the L* value, it can be noticed that the Black background had the lowest L* value as the White background had the higher L* value. The A1 shade had higher L* values than the A3 shade for the ceramic blocks, regardless of the translucency (LT or HT). For the same shade color (A1 or A3), the LT ceramics had higher L* values than the HT ceramics. For the a* values, it can be noticed that the ceramic block IPS Empress® HT A1 has a negative a* value, which makes it with a greenish aspect. The White background has also a negative a* value, but it is very close to 0. The black background has a positive a* value, which makes it with a reddish aspect. The ceramic IPS Empress® LT A3 has the highest a* value followed by IPS Empress® HT A3 and IPS Empress® LT A1, respectively.
 For the b* values, all substrates have a positive b* value. The White background has a higher b* value than the black background. The ceramic A3 have higher b* value than the ceramic A1. The ceramics LT have a higher b* value than the ceramics HT.
@@ -147,7 +149,7 @@ The excel spreadsheet with algorithm GUI can be download in the supplementary ma
 
 ### Multivariate Regression (Notebook 2)
 
-The complete notebook for multivariate regression can be found here : - Notebook 2 > https://github.com/drmateusrocha/
+The complete notebook for multivariate regression can be found here : - Notebook 2 > https://github.com/drmateusrocha/Capstone-Project/blob/dfc4545826616367db78551fd92b00cc0de4b790/notebooks/Notebook%202%20-%20Multivariate%20Regression%20Models%20for%20the%20Color%20Variables.ipynb
 
 The DecisionTreeRegressor() was the best model with the lowest mean absolute error (MAE, 0.226) ad the highest R2 score (0.99)
 
@@ -174,18 +176,29 @@ The complete notebook for the Simple Neural Network can be found here: - Noteboo
 
 This model was developed using TensorFlow and GridSearchCV (Scikit Learn) for optimization.
 
-First the a simple neural network (NN) with 7 inputs, 5 neurons, 1 hidden layer and 3 outputs was attempted. The MAE error for this NN was 1.864.
+First the a simple neural network (NN) with 7 inputs, 2 hidden layers, 5 neurons per layer and 3 outputs was attempted. The MAE error for this NN was 1.864.
 
 Then, a GridSearchCV optimization was done to determine the number of hidden layers (1 or 2) and the number of neurons per hidden layer (20, 10, 5, 3) using batch sizes of 20, 50, 100 and epochs of 20, 50, 100.
 
 
-The MAE error for the optimized NN was 1.547.
+The MAE error for the optimized NN was 0.153.
 
+The Feature importance acording to the NN is:
 
+    Weight	Feature
+    0.5816 ± 0.0218	bsub
+    0.3295 ± 0.0091	Lsub
+    0.2864 ± 0.0263	asub
+    0.2378 ± 0.0107	Thickness
+    0.0813 ± 0.0047	acer
+    0.0587 ± 0.0036	bcer
+    0.0411 ± 0.0015	Lcer
+    
+The model was deployed using the API Gradio for simple GUI.
 
 ### Deep Neural Network (Notebook 4)
 
-
+The Deep neural network is still under development. In a trial attempt the use of the following parameters 'learning_rate': 0.001614, 'dropout_rate': 0.087819, 'num_hidden_layers': 48, 'neurons_per_layer': 179, 'batch_size': 8, 'activation': 'tanh', 'optimizer': 'adam' found the optimium result. However, only 25 trial were attempt and I am now running 400 trials. Now is 234/400 (Sep 14, 12:28 EDT)
 
 ## Conclusion
 
@@ -196,8 +209,9 @@ The simple neural network was able to predict the shade values, but since the li
 The deep neural network was also able to predict the shade values, and the same limitation on the output funtion was implemented. For the Deep NN, Bayesian Optimization was done instead of GridSearchCV for faster optimization. 400 trials were attempted and the ideal architeture has: 
 
 #### Outline of project
+https://github.com/drmateusrocha/Capstone-Project/tree/main/notebooks
 
-- Notebook 1 - Exploratory Analysis > https://github.com/drmateusrocha/
-- Notebook 2 - Multivariate Regressions (Scikit Learn) > https://github.com/drmateusrocha/
-- Notebook 3 - Simple Neural Network (TensorFlow with GridSearchCV) > https://github.com/drmateusrocha/
-- Notebook 4 - Deep Neural Network (Tensorflow with Bayesian Optimization)> https://github.com/drmateusrocha/
+- Notebook 1 - Exploratory Analysis 
+- Notebook 2 - Multivariate Regressions (Scikit Learn) 
+- Notebook 3 - Simple Neural Network (TensorFlow with GridSearchCV) 
+- Notebook 4 - Deep Neural Network (Tensorflow with Bayesian Optimization)
