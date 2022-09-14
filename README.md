@@ -64,6 +64,7 @@ I am using the Jupyter Notebooks with scikit-learn libraries.
 First I attempted different Regression Models using their default parameters
 
 The models tested were:
+    
     BaggingRegressor()
     CCA()
     DecisionTreeRegressor()
