@@ -204,9 +204,9 @@ The Deep neural network is still under development. In a trial attempt the use o
 
 All models were able to predict the L, a and b of the ceramics according to the different input parameters. The Multivariate Regression using the Decision Tree Regressor obtained the lowest MAE, however, the model seems to be very accurate to predict the shade within the range of the train data. The model is not overfitted but extrapolation of data can lead to wrong predictions
 
-The simple neural network was able to predict the shade values, but since the linear output function can lead to infinity, a function limiting the output was needed since L values can only be from 0 to 100 and a and b values only from -100 to 100. Even with a simple NN, the computational power needed for grid search is massive. It took a few hours to complete. The best architecture has
+The simple neural network was able to predict the shade values, but since the linear output function can lead to infinity, a function limiting the output was needed since L values can only be from 0 to 100 and a and b values only from -100 to 100. Even with a simple NN, the computational power needed for grid search is massive. It took a few hours to complete. The best architecture has 7 inputs, 2 hidden layers, with 20 and 3 nodes respectevely, using a model fit with batch size of 20 and epochs of 100.
 
-The deep neural network was also able to predict the shade values, and the same limitation on the output funtion was implemented. For the Deep NN, Bayesian Optimization was done instead of GridSearchCV for faster optimization. 400 trials were attempted and the ideal architeture has: 
+The deep neural network was also able to predict the shade values, and the same limitation on the output funtion was implemented. For the Deep NN, Bayesian Optimization was done instead of GridSearchCV for faster optimization. 400 trials are running and the ideal architeture will be tested later 
 
 #### Outline of project
 https://github.com/drmateusrocha/Capstone-Project/tree/main/notebooks
